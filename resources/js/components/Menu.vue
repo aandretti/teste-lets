@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <router-link :to="{name: 'home'}" class="navbar-brand">Laravel + JWT + Vue JS</router-link>
+    <router-link :to="{name: 'home'}" class="navbar-brand">Teste</router-link>
     <button
       class="navbar-toggler"
       type="button"
@@ -13,12 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto" v-if="$auth.check(1)">
-        <li class="nav-item" v-for="(route, key) in routes.user" v-bind:key="route.path">
-          <router-link :to="{ name : route.path }" :key="key" class="nav-link">{{route.name}}</router-link>
-        </li>
-      </ul>
-      <ul class="navbar-nav mr-auto" v-if="$auth.check(2)">
+      <ul class="navbar-nav mr-auto" v-if="$auth.check()">
         <li class="nav-item" v-for="(route, key) in routes.user" v-bind:key="route.path">
           <router-link :to="{ name : route.path }" :key="key" class="nav-link">{{route.name}}</router-link>
         </li>
@@ -47,9 +42,10 @@ export default {
           { name: "Login", path: "login" }
         ],
         // LOGGED USER
-        user: [{ name: "Dashboard", path: "dashboard" }],
-        // LOGGED ADMIN
-        admin: [{ name: "Dashboard", path: "admin.dashboard" }]
+        user: [
+          { name: "Dashboard", path: "dashboard" },
+          { name: "Register Package", path: "package.create" }
+        ]
       }
     };
   },

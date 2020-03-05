@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/user/Dashboard";
+import CreatePackage from "./pages/user/CreatePackage";
 
 const routes = [
     {
@@ -33,6 +34,14 @@ const routes = [
         path: "/dashboard",
         name: "dashboard",
         component: Dashboard,
+        meta: {
+            auth: true
+        }
+    },
+    {
+        path: "/package/create",
+        name: "package.create",
+        component: CreatePackage,
         meta: {
             auth: true
         }
